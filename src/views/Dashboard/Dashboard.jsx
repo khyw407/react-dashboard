@@ -4,7 +4,7 @@ import { Grid } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 
 import {
-  Controller, ETCD, Scheduler, Namespace, Nodes, EventError
+  Controller, ETCD, Scheduler, Namespace, Node, EventError, Host, DockerContainer, DaemonSet, Deployment, ReplicaSet, StatefulSet, Pod, ClusterCPUUtilization, ClusterMemoryUtilization, ClusterPodUtilization
 } from './components';
 
 const useStyles = makeStyles(theme => ({
@@ -65,7 +65,7 @@ const Dashboard = () => {
           xl={2}
           xs={12}
         >
-          <Nodes />
+          <Node />
         </Grid>
         <Grid
           item
@@ -101,7 +101,7 @@ const Dashboard = () => {
           xl={6}
           xs={12}
         >
-          <Controller />
+          <Host />
         </Grid>
         <Grid
           item
@@ -110,7 +110,7 @@ const Dashboard = () => {
           xl={6}
           xs={12}
         >
-          <Controller />
+          <DockerContainer />
         </Grid>
         <Grid
           item
@@ -121,7 +121,6 @@ const Dashboard = () => {
         >
           <Typography variant="h6">Kubernetes Workloads</Typography>
         </Grid>
-
         <Grid
           item
           lg={2}
@@ -129,7 +128,7 @@ const Dashboard = () => {
           xl={2}
           xs={12}
         >
-          <Controller />
+          <DaemonSet />
         </Grid>
         <Grid
           item
@@ -138,7 +137,7 @@ const Dashboard = () => {
           xl={2}
           xs={12}
         >
-          <Controller />
+          <Deployment />
         </Grid>
         <Grid
           item
@@ -147,7 +146,7 @@ const Dashboard = () => {
           xl={2}
           xs={12}
         >
-          <Controller />
+          <ReplicaSet />
         </Grid>
         <Grid
           item
@@ -156,7 +155,7 @@ const Dashboard = () => {
           xl={2}
           xs={12}
         >
-          <Controller />
+          <StatefulSet />
         </Grid>
         <Grid
           item
@@ -165,7 +164,7 @@ const Dashboard = () => {
           xl={2}
           xs={12}
         >
-          <Controller />
+          <Pod />
         </Grid>
         <Grid
           item
@@ -173,8 +172,15 @@ const Dashboard = () => {
           sm={4}
           xl={2}
           xs={12}
+        />
+        <Grid
+          item
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
         >
-          <Controller />
+          <ClusterCPUUtilization />
         </Grid>
         <Grid
           item
@@ -183,7 +189,7 @@ const Dashboard = () => {
           xl={4}
           xs={12}
         >
-          <Controller />
+          <ClusterMemoryUtilization />
         </Grid>
         <Grid
           item
@@ -192,25 +198,7 @@ const Dashboard = () => {
           xl={4}
           xs={12}
         >
-          <Controller />
-        </Grid>
-        <Grid
-          item
-          lg={4}
-          sm={12}
-          xl={4}
-          xs={12}
-        >
-          <Controller />
-        </Grid>
-        <Grid
-          item
-          lg={12}
-          sm={12}
-          xl={12}
-          xs={12}
-        >
-          <Controller />
+          <ClusterPodUtilization />
         </Grid>
         <Grid
           item

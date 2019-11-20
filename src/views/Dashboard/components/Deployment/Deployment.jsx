@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Nodes = props => {
+const Deployment = props => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
@@ -42,19 +42,19 @@ const Nodes = props => {
               gutterBottom
               variant="h6"
             >
-              Nodes
+              Deployments
             </Typography>
           </Grid>
         </Grid>
         <Divider className={classes.divider} />
-        <Typography variant="h3" className={classes.content}>4 / 4</Typography>
+        <Typography variant="h3" className={classes.content}>16 / 16</Typography>
       </CardContent>
     </Card>
   );
 };
 
-Nodes.propTypes = {
+Deployment.propTypes = {
   className: PropTypes.string
 };
 
-export default Nodes;
+export default Deployment;

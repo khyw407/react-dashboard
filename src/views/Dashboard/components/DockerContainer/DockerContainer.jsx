@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const EventError = props => {
+const DockerContainer = props => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
@@ -42,19 +42,19 @@ const EventError = props => {
               gutterBottom
               variant="h6"
             >
-              Event Error
+              Docker Container
             </Typography>
           </Grid>
         </Grid>
         <Divider className={classes.divider} />
-        <Typography variant="h3" className={classes.content}>0</Typography>
+        <Typography variant="h3" className={classes.content}>47</Typography>
       </CardContent>
     </Card>
   );
 };
 
-EventError.propTypes = {
+DockerContainer.propTypes = {
   className: PropTypes.string
 };
 
-export default EventError;
+export default DockerContainer;

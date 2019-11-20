@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     textAlign: 'center',
-    fontWeight: 'bold'
+    fontWeight: "bold"
   },
   title: {
     fontWeight: 700
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const EventError = props => {
+const Node = props => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
@@ -42,19 +42,19 @@ const EventError = props => {
               gutterBottom
               variant="h6"
             >
-              Event Error
+              Nodes
             </Typography>
           </Grid>
         </Grid>
         <Divider className={classes.divider} />
-        <Typography variant="h3" className={classes.content}>0</Typography>
+        <Typography variant="h3" className={classes.content}>4 / 4</Typography>
       </CardContent>
     </Card>
   );
 };
 
-EventError.propTypes = {
+Node.propTypes = {
   className: PropTypes.string
 };
 
-export default EventError;
+export default Node;

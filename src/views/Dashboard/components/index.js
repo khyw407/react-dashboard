@@ -14,3 +14,4 @@ export { default as Pod } from './Pods';
 export { default as ClusterCPUUtilization } from './ClusterCPUUtilization';
 export { default as ClusterMemoryUtilization } from './ClusterMemoryUtilization';
 export { default as ClusterPodUtilization } from './ClusterPodUtilization';
+export { default as Service } from './Service';

@@ -4,7 +4,7 @@ import { Grid } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 
 import {
-  Controller, ETCD, Scheduler, Namespace, Node, EventError, Host, DockerContainer, DaemonSet, Deployment, ReplicaSet, StatefulSet, Pod, ClusterCPUUtilization, ClusterMemoryUtilization, ClusterPodUtilization
+  Controller, ETCD, Scheduler, Namespace, Node, EventError, Host, DockerContainer, DaemonSet, Deployment, ReplicaSet, StatefulSet, Pod, ClusterCPUUtilization, ClusterMemoryUtilization, ClusterPodUtilization, Service
 } from './components';
 
 const useStyles = makeStyles(theme => ({
@@ -172,7 +172,9 @@ const Dashboard = () => {
           sm={4}
           xl={2}
           xs={12}
-        />
+        >
+          <Service />
+        </Grid>
         <Grid
           item
           lg={4}

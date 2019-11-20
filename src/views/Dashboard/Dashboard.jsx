@@ -4,7 +4,7 @@ import { Grid } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 
 import {
-  Controller
+  Controller, ETCD, Scheduler
 } from './components';
 
 const useStyles = makeStyles(theme => ({
@@ -18,110 +18,233 @@ const Dashboard = () => {
 
   return (
     <div className={classes.root}>
-      <Typography variant="h6">Kubernetes Cluster</Typography>
       <Grid
         container
         spacing={1}
       >
         <Grid
           item
-          xs={1}
+          lg={12}
+          sm={12}
+          xl={12}
+          xs={12}
+        >
+          <Typography variant="h6">Kubernetes Cluster</Typography>
+        </Grid>
+        <Grid
+          item
+          lg={2}
+          sm={4}
+          xl={2}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={1}
+          lg={2}
+          sm={4}
+          xl={2}
+          xs={12}
+        >
+          <ETCD />
+        </Grid>
+        <Grid
+          item
+          lg={2}
+          sm={4}
+          xl={2}
+          xs={12}
+        >
+          <Scheduler />
+        </Grid>
+        <Grid
+          item
+          lg={2}
+          sm={4}
+          xl={2}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={1}
+          lg={2}
+          sm={4}
+          xl={2}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={1}
+          lg={2}
+          sm={4}
+          xl={2}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={1}
+          lg={12}
+          sm={12}
+          xl={12}
+          xs={12}
+        >
+          <Typography variant="h6">Infrastructures</Typography>
+        </Grid>
+        <Grid
+          item
+          lg={6}
+          sm={12}
+          xl={6}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={1}
+          lg={6}
+          sm={12}
+          xl={6}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={3}
+          lg={12}
+          sm={12}
+          xl={12}
+          xs={12}
+        >
+          <Typography variant="h6">Kubernetes Workloads</Typography>
+        </Grid>
+
+        <Grid
+          item
+          lg={2}
+          sm={4}
+          xl={2}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={3}
-        >
-          <Controller />
-        </Grid>
-      </Grid>
-      <Typography variant="h6">Kubernetes Workloads</Typography>
-      <Grid
-        container
-        spacing={1}
-      >
-        <Grid
-          item
-          xs={1}
+          lg={2}
+          sm={4}
+          xl={2}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={1}
+          lg={2}
+          sm={4}
+          xl={2}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={1}
+          lg={2}
+          sm={4}
+          xl={2}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={1}
+          lg={2}
+          sm={4}
+          xl={2}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={1}
+          lg={2}
+          sm={4}
+          xl={2}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={1}
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={3}
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
         >
           <Controller />
         </Grid>
         <Grid
           item
-          xs={3}
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
+        >
+          <Controller />
+        </Grid>
+        <Grid
+          item
+          lg={12}
+          sm={12}
+          xl={12}
+          xs={12}
+        >
+          <Controller />
+        </Grid>
+        <Grid
+          item
+          lg={3}
+          sm={6}
+          xl={3}
+          xs={12}
+        >
+          <Controller />
+        </Grid>
+        <Grid
+          item
+          lg={3}
+          sm={6}
+          xl={3}
+          xs={12}
+        >
+          <Controller />
+        </Grid>
+        <Grid
+          item
+          lg={3}
+          sm={6}
+          xl={3}
+          xs={12}
+        >
+          <Controller />
+        </Grid>
+        <Grid
+          item
+          lg={3}
+          sm={6}
+          xl={3}
+          xs={12}
         >
           <Controller />
         </Grid>

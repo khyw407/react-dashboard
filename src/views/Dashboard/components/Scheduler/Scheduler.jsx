@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Controller = props => {
+const Scheduler = props => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
@@ -44,7 +44,7 @@ const Controller = props => {
               gutterBottom
               variant="h6"
             >
-              Controller
+              Scheduler
             </Typography>
           </Grid>
         </Grid>
@@ -57,8 +57,8 @@ const Controller = props => {
   );
 };
 
-Controller.propTypes = {
+Scheduler.propTypes = {
   className: PropTypes.string
 };
 
-export default Controller;
+export default Scheduler;

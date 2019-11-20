@@ -4,7 +4,7 @@ import { Grid } from '@material-ui/core';
 import { Typography } from '@material-ui/core';
 
 import {
-  Controller, ETCD, Scheduler
+  Controller, ETCD, Scheduler, Namespace, Nodes, EventError
 } from './components';
 
 const useStyles = makeStyles(theme => ({
@@ -65,7 +65,7 @@ const Dashboard = () => {
           xl={2}
           xs={12}
         >
-          <Controller />
+          <Nodes />
         </Grid>
         <Grid
           item
@@ -74,7 +74,7 @@ const Dashboard = () => {
           xl={2}
           xs={12}
         >
-          <Controller />
+          <Namespace />
         </Grid>
         <Grid
           item
@@ -83,7 +83,7 @@ const Dashboard = () => {
           xl={2}
           xs={12}
         >
-          <Controller />
+          <EventError />
         </Grid>
         <Grid
           item

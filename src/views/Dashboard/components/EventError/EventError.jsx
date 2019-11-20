@@ -10,8 +10,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     textAlign: 'center',
-    fontWeight: "bold",
-    color: "#36a3f7"
+    fontWeight: 'bold'
   },
   title: {
     fontWeight: 700
@@ -21,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Scheduler = props => {
+const EventError = props => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
@@ -43,19 +42,19 @@ const Scheduler = props => {
               gutterBottom
               variant="h6"
             >
-              Scheduler
+              EventError
             </Typography>
           </Grid>
         </Grid>
         <Divider className={classes.divider} />
-        <Typography variant="h3" className={classes.content}>True</Typography>
+        <Typography variant="h3" className={classes.content}>0</Typography>
       </CardContent>
     </Card>
   );
 };
 
-Scheduler.propTypes = {
+EventError.propTypes = {
   className: PropTypes.string
 };
 
-export default Scheduler;
+export default EventError;

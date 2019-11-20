@@ -9,8 +9,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%'
   },
   content: {
-    alignItems: 'center',
-    display: 'flex',
+    textAlign: 'center',
     fontWeight: "bold",
     color: "#36a3f7"
   },
@@ -49,9 +48,7 @@ const Controller = props => {
           </Grid>
         </Grid>
         <Divider className={classes.divider} />
-        <div className={classes.difference}>
-          <Typography variant="h3" className={classes.content}>True</Typography>
-        </div>
+        <Typography variant="h3" className={classes.content}>True</Typography>
       </CardContent>
     </Card>
   );

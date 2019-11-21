@@ -117,7 +117,7 @@ const SidebarNav = props => {
           </Button>
         </ListItem>
       ))}
-      <ListItem button onClick={() => this.handleClick(page.title)}>
+      <ListItem button onClick={() => this.handleClick()}>
         <ListItemIcon>
           <MoveToInbox />
         </ListItemIcon>

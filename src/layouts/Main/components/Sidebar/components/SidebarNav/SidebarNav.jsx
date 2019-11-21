@@ -69,7 +69,7 @@ const SidebarNav = props => {
           </Collapse>
         );
       });
-    }else{
+    }else{ 
       return (
         <ListItem
           className={classes.item}

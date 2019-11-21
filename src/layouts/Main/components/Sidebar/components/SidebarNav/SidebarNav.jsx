@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState  } from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
@@ -52,9 +52,9 @@ const CustomRouterLink = forwardRef((props, ref) => (
 const SidebarNav = props => {
   const { pages, className, ...rest } = props;
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const pageList = pages.map((page) => {
-    if(page.hasOwnProperty('subPages')){
+    if(page.subPages){
       page.subPages.map((subPage) => {
         return (
           <Collapse in={open} timeout="auto" unmountOnExit>
@@ -89,8 +89,10 @@ const SidebarNav = props => {
     }
   });
 
-  const handleClick = () => {
-    setOpen(!open);
+  const handleClick = (item) => {
+    this.setState(prevState => (
+      {[item]: !prevState[item]}
+    ));
   };
 
   return (
@@ -115,7 +117,7 @@ const SidebarNav = props => {
           </Button>
         </ListItem>
       ))}
-      <ListItem button onClick={handleClick}>
+      <ListItem button onClick={() => this.handleClick(page.title)}>
         <ListItemIcon>
           <MoveToInbox />
         </ListItemIcon>
@@ -124,12 +126,6 @@ const SidebarNav = props => {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-            <ListItemIcon>
-              <FiberManualRecordIcon />
-            </ListItemIcon>
-            <ListItemText primary="Starred" />
-          </ListItem>
           <ListItem button className={classes.nested}>
             <ListItemIcon>
               <FiberManualRecordIcon />

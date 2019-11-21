@@ -57,7 +57,7 @@ const Sidebar = props => {
         {title: 'Pod', href: '/pod'},
         {title: 'Replicaset', href: '/replicaset'},
         {title: 'Statefulset', href: '/statefulset'},
-        {title: 'Services', href: '/services'}
+        {title: 'Services', href: '/service'}
       ]
     },
     {

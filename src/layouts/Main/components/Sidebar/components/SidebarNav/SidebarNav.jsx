@@ -90,7 +90,7 @@ const SidebarNav = props => {
   });
 
   const handleClick = (item) => {
-    this.setState(prevState => (
+    setOpen(prevState => (
       {[item]: !prevState[item]}
     ));
   };
@@ -117,7 +117,7 @@ const SidebarNav = props => {
           </Button>
         </ListItem>
       ))}
-      <ListItem button onClick={() => this.handleClick()}>
+      <ListItem button onClick={() => handleClick()}>
         <ListItemIcon>
           <MoveToInbox />
         </ListItemIcon>

@@ -1,11 +1,9 @@
-import React, { forwardRef, useState  } from 'react';
+import React, { forwardRef  } from 'react';
 import { NavLink as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
-import { List, ListItem, Button, colors, ListItemIcon, ListItemText, Collapse } from '@material-ui/core';
-import { MoveToInbox, ExpandLess, ExpandMore } from '@material-ui/icons';
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import { List, ListItem, Button, colors } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -52,48 +50,6 @@ const CustomRouterLink = forwardRef((props, ref) => (
 const SidebarNav = props => {
   const { pages, className, ...rest } = props;
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
-  const pageList = pages.map((page) => {
-    if(page.subPages){
-      page.subPages.map((subPage) => {
-        return (
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <FiberManualRecordIcon />
-                </ListItemIcon>
-                <ListItemText primary={subPage.title} />
-              </ListItem>
-            </List>
-          </Collapse>
-        );
-      });
-    }else{ 
-      return (
-        <ListItem
-          className={classes.item}
-          disableGutters
-          key={page.title}
-        >
-          <Button
-            activeClassName={classes.active}
-            className={classes.button}
-            component={CustomRouterLink}
-            to={page.href}
-          >
-            <div className={classes.icon}>{page.icon}</div>
-            {page.title}
-          </Button>
-        </ListItem>);
-    }
-  });
-
-  const handleClick = (item) => {
-    setOpen(prevState => (
-      {[item]: !prevState[item]}
-    ));
-  };
 
   return (
     <List
@@ -117,23 +73,6 @@ const SidebarNav = props => {
           </Button>
         </ListItem>
       ))}
-      <ListItem button onClick={() => handleClick()}>
-        <ListItemIcon>
-          <MoveToInbox />
-        </ListItemIcon>
-        <ListItemText primary="Inbox" />
-        {open ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-            <ListItemIcon>
-              <FiberManualRecordIcon />
-            </ListItemIcon>
-            <ListItemText primary="Starred" />
-          </ListItem>
-        </List>
-      </Collapse>
     </List>
   );
 };

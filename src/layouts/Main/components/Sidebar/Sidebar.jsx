@@ -47,38 +47,17 @@ const Sidebar = props => {
     {
       title: 'Kubernetes',
       href: '/kubernetes',
-      icon: <WbSunny />,
-      subPages: [
-        {title: 'Cluster', href: '/cluster'},
-        {title: 'Node', href: '/node'},
-        {title: 'Workload', href: '/workload'},
-        {title: 'Daemonset', href: '/daemonset'},
-        {title: 'Deployment', href: '/deployment'},
-        {title: 'Pod', href: '/pod'},
-        {title: 'Replicaset', href: '/replicaset'},
-        {title: 'Statefulset', href: '/statefulset'},
-        {title: 'Services', href: '/service'}
-      ]
+      icon: <WbSunny />
     },
     {
       title: 'Infrastructure',
       href: '/infrastructure',
-      icon: <Storage />,
-      subPages: [
-        {title: 'Host', href: '/host'},
-        {title: 'Container', href: '/container'},
-        {title: 'Resource', href: '/resource'}
-      ]
+      icon: <Storage />
     },
     {
       title: 'Incident Manager',
       href: '/incidentManager',
-      icon: <Notifications />,
-      subPages: [
-        {title: 'Event Trace', href: '/trace'},
-        {title: 'Event Map', href: '/map'},
-        {title: 'Rule Set Manager', href: '/rule'}
-      ]
+      icon: <Notifications />
     }
   ];
 

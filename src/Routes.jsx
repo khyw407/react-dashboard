@@ -6,6 +6,9 @@ import { Main as MainLayout } from './layouts';
 
 import {
   Dashboard as DashboardView,
+  Kubernetes as KubernetesView,
+  Infrastructure as InfrastructureView,
+  Incident as IncidentView
 } from './views';
 
 const Routes = () => {
@@ -21,6 +24,24 @@ const Routes = () => {
         exact
         layout={MainLayout}
         path="/dashboard"
+      />
+      <RouteWithLayout
+        component={KubernetesView}
+        exact
+        layout={MainLayout}
+        path="/kubernetes"
+      />
+      <RouteWithLayout
+        component={InfrastructureView}
+        exact
+        layout={MainLayout}
+        path="/infrastructure"
+      />
+      <RouteWithLayout
+        component={IncidentView}
+        exact
+        layout={MainLayout}
+        path="/incident"
       />
     </Switch>
   );

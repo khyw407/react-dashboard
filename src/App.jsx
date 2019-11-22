@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { StylesProvider, ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { CssBaseline } from '@material-ui/core';
+import { createBrowserHistory } from 'history';
 import './App.css';
 import Routes from './Routes';
 
@@ -23,6 +24,8 @@ let ContextProviders = ({ providers = [], children }) => {
   }, children);
 };
 
+const history = createBrowserHistory();
+
 export default (props) => {
   return (
     <ContextProviders providers={[
@@ -31,7 +34,7 @@ export default (props) => {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <BrowserRouter>
-            <Routes />
+            <Routes history={history}/>
           </BrowserRouter>
         </ThemeProvider>
       </StylesProvider>

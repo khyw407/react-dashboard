@@ -6,3 +6,4 @@ export { default as Pod } from './Pod';
 export { default as Replicaset } from './Replicatset';
 export { default as Statefulset } from './Statefulset';
 export { default as Workload } from './Workload';
+export { default as Service } from './Service';

@@ -1,60 +1,100 @@
 import React from 'react';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
-import { Card, CardContent, Grid, Typography, Divider } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
+import {
+  Cpu, DaemonSet, Deployment, Info, Memory, Namespace, Pod, Usage
+} from './components';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '100%'
-  },
-  content: {
-    textAlign: 'center',
-    fontWeight: "bold"
-  },
-  title: {
-    fontWeight: 700
-  },
-  divider: {
-    margin: theme.spacing(2, 0)
+    padding: theme.spacing(4)
   }
 }));
 
-const Node = props => {
-  const { className, ...rest } = props;
-
+const Cluster = () => {
   const classes = useStyles();
 
   return (
-    <Card
-      {...rest}
-      className={clsx(classes.root, className)}
-    >
-      <CardContent>
+    <div className={classes.root}>
+      <Grid
+        container
+        spacing={1}
+      >
         <Grid
-          container
-          justify="space-between"
+          item
+          lg={6}
+          sm={12}
+          xl={6}
+          xs={12}
         >
-          <Grid item>
-            <Typography
-              className={classes.title}
-              color="textSecondary"
-              gutterBottom
-              variant="h6"
-            >
-              Nodes
-            </Typography>
-          </Grid>
+          <Info />
         </Grid>
-        <Divider className={classes.divider} />
-        <Typography variant="h3" className={classes.content}>4 / 4</Typography>
-      </CardContent>
-    </Card>
+        <Grid
+          item
+          lg={6}
+          sm={12}
+          xl={6}
+          xs={12}
+        >
+          <Usage />
+        </Grid>
+        <Grid
+          item
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
+        >
+          <Cpu />
+        </Grid>
+        <Grid
+          item
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
+        >
+          <Memory />
+        </Grid>
+        <Grid
+          item
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
+        >
+          <Pod />
+        </Grid>
+        <Grid
+          item
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
+        >
+          <Namespace />
+        </Grid>
+        <Grid
+          item
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
+        >
+          <DaemonSet />
+        </Grid>
+        <Grid
+          item
+          lg={4}
+          sm={12}
+          xl={4}
+          xs={12}
+        >
+          <Deployment />
+        </Grid>
+      </Grid>
+    </div>
   );
 };
 
-Node.propTypes = {
-  className: PropTypes.string
-};
-
-export default Node;
+export default Cluster;

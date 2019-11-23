@@ -52,6 +52,7 @@
     "react": "^16.10.1",
     "react-app-polyfill": "^1.0.3",
     "react-chartjs-3": "^2.7.7",
+    "react-perfect-scrollbar": "^1.5.3",
     "react-dev-utils": "^9.0.4",
     "react-dom": "^16.10.1",
     "react-router-dom": "^5.1.2",

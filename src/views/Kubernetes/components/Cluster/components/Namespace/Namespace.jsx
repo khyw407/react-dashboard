@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   item: {
     display: 'flex',
     flexDirection: 'column'
-  },
+  }, 
   title: {
     fontWeight: 700
   },

@@ -80,7 +80,7 @@ const DaemonSet = props => {
                 <Table>
                     <TableBody>
                         {list.map((item, i) => (
-                          <TableRow>
+                          <TableRow key={item.id}>
                             <TableCell>
                               <ListItemIcon>
                                   <span className={classes.indicator} />

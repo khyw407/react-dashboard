@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 import { makeStyles } from '@material-ui/styles';
 import {
-  Card, CardContent, Grid, Typography, Divider, List, ListItem, ListItemText, ListItemIcon, colors
+  Card, CardContent, Grid, Typography, Divider,
+  Table, TableBody, TableCell, TableRow, ListItemIcon, ListItemText, colors
 } from '@material-ui/core';
 import mockData from './data';
 
@@ -12,12 +14,19 @@ const useStyles = makeStyles(theme => ({
   item: {
     display: 'flex',
     flexDirection: 'column'
-  }, 
+  },
   title: {
     fontWeight: 700
   },
   divider: {
     margin: theme.spacing(2, 0)
+  },
+  inner: {
+    minWidth: 300
+  },
+  tableCell: {
+    fontWeight: 900,
+    fontSize: 'large',
   },
   critical: {
     '& $indicator': {
@@ -66,26 +75,53 @@ const Namespace = props => {
             </Grid>
           </Grid>
           <Divider className={classes.divider} />
-          <List>
-            {list.map((item, i) => (
-                <ListItem
-                    divider={i < item.length - 1}
-                    key={item.id}
-                >
-                    <ListItemIcon>
-                        <span className={classes.indicator} />
-                    </ListItemIcon>
-                    <ListItemText
-                        className={classes.listItemText}
-                        primary={item.name}
-                    />
-                    <ListItemText
-                        className={classes.listItemText}
-                        primary={item.updatedAt.toString()}
-                    />
-                </ListItem>
-            ))}
-          </List>
+          <PerfectScrollbar options={{ suppressScrollY: true }}>
+            <div className={classes.inner} style={{ overflow: 'auto', height: '350px' }}>
+                <Table>
+                    <TableBody>
+                        {list.map((item, i) => (
+                          <TableRow>
+                            <TableCell>
+                              <ListItemIcon>
+                                  <span className={classes.indicator} />
+                              </ListItemIcon>
+                            </TableCell>
+                            <TableCell>
+                              <ListItemText
+                                  className={classes.listItemText}
+                                  primary={
+                                    <>
+                                      <Typography
+                                        variant="subtitle2"
+                                        color="textPrimary"
+                                      >
+                                        <strong>{item.name}</strong>
+                                      </Typography>
+                                    </>
+                                  }
+                              />
+                            </TableCell>
+                            <TableCell>
+                              <ListItemText
+                                  className={classes.listItemText}
+                                  primary={
+                                    <>
+                                      <Typography
+                                        variant="subtitle2"
+                                        color="textPrimary"
+                                      >
+                                        <strong>{item.updatedAt.toString()}</strong>
+                                      </Typography>
+                                    </>
+                                  }
+                              />
+                            </TableCell>
+                          </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </div>
+            </PerfectScrollbar>
       </CardContent>
     </Card>
   );

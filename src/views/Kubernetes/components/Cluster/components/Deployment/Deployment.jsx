@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { makeStyles } from '@material-ui/styles';
 import {
   Card, CardContent, Grid, Typography, Divider,
-  Table, TableBody, TableCell, TableRow,
+  Table, TableBody, TableCell, TableRow, ListItemIcon, ListItemText, colors
 } from '@material-ui/core';
+import mockData from './data';
 
 const useStyles = makeStyles(theme => ({
   root: {height: '100%'},
@@ -26,6 +27,22 @@ const useStyles = makeStyles(theme => ({
   tableCell: {
     fontWeight: 900,
     fontSize: 'large',
+  },
+  critical: {
+    '& $indicator': {
+      borderColor: colors.red[600]
+    }
+  },
+  indicator: {
+    height: 12,
+    width: 12,
+    borderWidth: 4,
+    borderStyle: 'solid',
+    borderColor: colors.cyan[500],
+    borderRadius: '50%'
+  },
+  listItemText: {
+    marginRight: theme.spacing(1)
   }
 }));
 
@@ -33,6 +50,8 @@ const Deployment = props => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
+
+  const [list] = useState(mockData);
 
   return (
     <Card
@@ -51,33 +70,84 @@ const Deployment = props => {
                     gutterBottom
                     variant="h6"
                 >
-                    Deployments [16/16]
+                    Deployments [6/6]
                 </Typography>
             </Grid>
           </Grid>
           <Divider className={classes.divider} />
           <PerfectScrollbar options={{ suppressScrollY: true }}>
-            <div className={classes.inner}>
+            <div className={classes.inner} style={{ overflow: 'auto', height: '350px' }}>
                 <Table>
                     <TableBody>
-                        <TableRow>
-                            <TableCell>CPU</TableCell>
-                            <TableCell>16</TableCell>
-                            <TableCell>1.042</TableCell>
-                            <TableCell>6.513%</TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell>Memory</TableCell>
-                            <TableCell>116.32</TableCell>
-                            <TableCell>28.103</TableCell>
-                            <TableCell>24.16%</TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell>Pod</TableCell>
-                            <TableCell>440</TableCell>
-                            <TableCell>39</TableCell>
-                            <TableCell>8.864%</TableCell>
-                        </TableRow>
+                        {list.map((item, i) => (
+                          <TableRow>
+                            <TableCell>
+                              <ListItemIcon>
+                                  <span className={classes.indicator} />
+                              </ListItemIcon>
+                            </TableCell>
+                            <TableCell>
+                              <ListItemText
+                                  className={classes.listItemText}
+                                  primary={
+                                    <>
+                                      <Typography
+                                        variant="subtitle2"
+                                        color="textPrimary"
+                                      >
+                                        <strong>{item.name}</strong>
+                                      </Typography>
+                                    </>
+                                  }
+                              />
+                            </TableCell>
+                            <TableCell>
+                              <ListItemText
+                                  className={classes.listItemText}
+                                  primary={
+                                    <>
+                                      <Typography
+                                        variant="subtitle2"
+                                        color="textPrimary"
+                                      >
+                                        <strong>{item.namepace}</strong>
+                                      </Typography>
+                                    </>
+                                  }
+                              />
+                            </TableCell>
+                            <TableCell>
+                              <ListItemText
+                                  className={classes.listItemText}
+                                  primary={
+                                    <>
+                                      <Typography
+                                        variant="subtitle2"
+                                        color="textPrimary"
+                                      >
+                                        <strong>[{item.count}]</strong>
+                                      </Typography>
+                                    </>
+                                  }
+                              />
+                            </TableCell>
+                            <TableCell>
+                              <ListItemText
+                                  className={classes.listItemText}
+                                  primary={
+                                    <>
+                                      <Typography
+                                        variant="subtitle2"
+                                        color="textPrimary"
+                                      >
+                                        <strong>{item.updatedAt.toString()}</strong>
+                                      </Typography>
+                                    </>
+                                  }
+                              />
+                            </TableCell>
+                          </TableRow>
+                        ))}
                     </TableBody>
                 </Table>
             </div>

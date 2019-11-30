@@ -1,10 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Doughnut } from 'react-chartjs-3';
+import { Line } from 'react-chartjs-3';
 import PropTypes from 'prop-types';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import { Card, CardContent, Grid, Divider, Typography } from '@material-ui/core';
-import { Mood, MoodBad } from '@material-ui/icons';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -43,55 +42,109 @@ const Pod = props => {
   const data = {
     datasets: [
       {
-        data: [80, 20],
-        backgroundColor: [
-          theme.palette.primary.main,
-          theme.palette.error.main
-        ],
-        borderWidth: 8,
-        borderColor: theme.palette.white,
-        hoverBorderColor: theme.palette.white
-      }
+        label: 'Pod Total',
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: 'rgba(0,102,0,0)',
+        borderColor: 'rgba(0,102,0,1)',
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: 'rgba(0,102,0,1)',
+        pointBackgroundColor: '#fff',
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: 'rgba(0,102,0,1)',
+        pointHoverBorderColor: 'rgba(0,102,0,1)',
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        data: [450, 450, 450, 450, 450, 450, 450]
+      },
+      {
+        label: 'Pod Used',
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        borderColor: 'rgba(75,192,192,1)',
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: 'rgba(75,192,192,1)',
+        pointBackgroundColor: '#fff',
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        data: [20, 20, 20, 20, 20, 20, 20]
+      },
     ],
-    labels: ['Available', 'Used']
+    labels: ['09:00', '09:05', '09:10', '09:15', '09:20', '09:25', '09:30']
   };
 
   const options = {
-    legend: {
-      display: false
-    },
     responsive: true,
     maintainAspectRatio: false,
     animation: false,
-    cutoutPercentage: 80,
-    layout: { padding: 0 },
+    legend: {
+      display: true
+    },
+    layout: {
+      padding: 0
+    },
+    scales: {
+      xAxes: [
+        {
+          gridLines: {
+            display: false,
+            drawBorder: false
+          },
+          ticks: {
+            padding: 20,
+            fontColor: theme.palette.text.secondary
+          }
+        }
+      ],
+      yAxes: [
+        {
+          gridLines: {
+            borderDash: [2],
+            borderDashOffset: [2],
+            color: theme.palette.divider,
+            drawBorder: false,
+            zeroLineBorderDash: [2],
+            zeroLineBorderDashOffset: [2],
+            zeroLineColor: theme.palette.divider
+          }
+        }
+      ]
+    },
     tooltips: {
       enabled: true,
       mode: 'index',
       intersect: false,
+      caretSize: 10,
+      yPadding: 20,
+      xPadding: 20,
       borderWidth: 1,
       borderColor: theme.palette.divider,
       backgroundColor: theme.palette.white,
-      titleFontColor: theme.palette.text.white,
-      bodyFontColor: theme.palette.text.white,
-      footerFontColor: theme.palette.text.white
+      titleFontColor: theme.palette.text.primary,
+      bodyFontColor: theme.palette.text.secondary,
+      footerFontColor: theme.palette.text.secondary,
+      callbacks: {
+        title: () => {},
+        label: tooltipItem => {
+          return tooltipItem.yLabel;
+        }
+      }
     }
   };
-
-  const devices = [
-    {
-      title: 'Used',
-      value: '20',
-      icon: <MoodBad />,
-      color: theme.palette.error.main
-    },
-    {
-      title: 'Available',
-      value: '80',
-      icon: <Mood />,
-      color: theme.palette.primary.main
-    }
-  ];
 
   return (
     <Card
@@ -116,27 +169,10 @@ const Pod = props => {
         </Grid>
         <Divider className={classes.divider} />
         <div className={classes.chartContainer}>
-            <Doughnut
+            <Line
                 data={data}
                 options={options}
             />
-        </div>
-        <div className={classes.stats}>
-          {devices.map(device => (
-            <div
-              className={classes.device}
-              key={device.title}
-            >
-              <span className={classes.deviceIcon}>{device.icon}</span>
-              <Typography variant="body1">{device.title}</Typography>
-              <Typography
-                style={{ color: device.color }}
-                variant="h2"
-              >
-                {device.value}%
-              </Typography>
-            </div>
-          ))}
         </div>
       </CardContent>
     </Card>

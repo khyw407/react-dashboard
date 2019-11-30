@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { Tabs, Tab, Divider, colors, Typography } from '@material-ui/core';
@@ -20,9 +21,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Kubernetes = props => {
-  const { history } = props;
+  const { match, history } = props;
   const classes = useStyles();
-  const tab = { value: 'cluster', label: 'Cluster' };
+  const tab = { value: match.url.split('/')[2], label: `${match.url.split('/')[2].charAt(0).toUpperCase()}${match.url.split('/')[2].substring(1)}`};
 
   const handleTabsChange = (event, value) => {
     history.push(value);
@@ -40,6 +41,10 @@ const Kubernetes = props => {
     { value: 'service', label: 'Service' },
   ];
 
+  if (!tab) {
+    return <Redirect to={`/kubernetes/cluster`} />;
+  }
+
   return (
     <div className={classes.root}>
       <Typography variant="h6">Kubernetes Cluster</Typography>
@@ -47,7 +52,7 @@ const Kubernetes = props => {
         className={classes.tabs}
         onChange={handleTabsChange}
         scrollButtons="auto"
-        value={tab}
+        value={tab.value}
         variant="scrollable"
         indicatorColor="primary"
         textColor="primary"

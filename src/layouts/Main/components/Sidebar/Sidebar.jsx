@@ -46,7 +46,7 @@ const Sidebar = props => {
     },
     {
       title: 'Kubernetes',
-      href: '/kubernetes',
+      href: '/kubernetes/cluster',
       icon: <WbSunny />
     },
     {

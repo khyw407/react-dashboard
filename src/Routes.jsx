@@ -29,7 +29,7 @@ const Routes = () => {
         component={KubernetesView}
         exact
         layout={MainLayout}
-        path="/kubernetes/cluster"
+        path="/kubernetes/*"
       />
       <RouteWithLayout
         component={InfrastructureView}

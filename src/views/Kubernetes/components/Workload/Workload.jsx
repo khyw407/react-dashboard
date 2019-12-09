@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Cluster = () => {
+const Workload = () => {
   const classes = useStyles();
 
   return (
@@ -79,4 +79,4 @@ const Cluster = () => {
   );
 };
 
-export default Cluster;
+export default Workload;

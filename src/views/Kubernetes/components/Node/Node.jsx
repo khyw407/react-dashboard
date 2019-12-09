@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Cluster = () => {
+const Node = () => {
   const classes = useStyles();
 
   return (
@@ -43,4 +43,4 @@ const Cluster = () => {
   );
 };
 
-export default Cluster;
+export default Node;

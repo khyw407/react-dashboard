@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Cluster = () => {
+const Daemonset = () => {
   const classes = useStyles();
 
   return (
@@ -52,4 +52,4 @@ const Cluster = () => {
   );
 };
 
-export default Cluster;
+export default Daemonset;

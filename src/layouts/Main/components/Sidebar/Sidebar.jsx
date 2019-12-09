@@ -56,7 +56,7 @@ const Sidebar = props => {
     },
     {
       title: 'Incident Manager',
-      href: '/incidentManager',
+      href: '/incident',
       icon: <Notifications />
     }
   ];

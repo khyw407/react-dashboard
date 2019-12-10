@@ -51,7 +51,7 @@ const Sidebar = props => {
     },
     {
       title: 'Infrastructure',
-      href: '/infrastructure',
+      href: '/infrastructure/host',
       icon: <Storage />
     },
     {

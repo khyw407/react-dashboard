@@ -35,7 +35,7 @@ const Routes = () => {
         component={InfrastructureView}
         exact
         layout={MainLayout}
-        path="/infrastructure"
+        path="/infrastructure/*"
       />
       <RouteWithLayout
         component={IncidentView}
